@@ -1,0 +1,58 @@
+﻿@model Mvc4EF6LazyLoadDemo.Models.Student
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Student</legend>
+
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model=> model.CourseId)
+		<div class="editor-label">
+			@Html.LabelFor(model => model.Instructor)
+		</div>
+		<div class="editor-field">
+			@Html.DropDownList("InstructorId")
+			@Html.ValidationMessageFor(model => model.Fullname)
+		</div>
+        
+     		
+@*        @Html.EditorFor(model=> model.Instructor, Model.Instructor)
+		
+        <div class="editor-label">
+			@Html.LabelFor(model => model.Course)
+		</div>
+		<div class="editor-field">
+			@Html.DropDownList("CourseId")
+            @Html.ValidationMessageFor(model => model.Fullname)
+		</div>
+*@		
+        @Html.Partial("EditorTemplates/_Course", Model)
+
+		<div class="editor-label">
+            @Html.LabelFor(model => model.Fullname)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Fullname)
+            @Html.ValidationMessageFor(model => model.Fullname)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

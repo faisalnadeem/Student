@@ -1,0 +1,46 @@
+﻿@model Mvc4EF6LazyLoadDemo.Models.Student
+
+@*<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+*@
+    <fieldset>
+        <legend>Instructor</legend>
+        	@Html.HiddenFor(model=> model.Instructor.Id)
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Instructor.Forename)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Instructor.Forename)
+            @Html.ValidationMessageFor(model => model.Instructor.Forename)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Instructor.Surname)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Instructor.Surname)
+            @Html.ValidationMessageFor(model => model.Instructor.Surname)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Instructor.Designation)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Instructor.Designation)
+            @Html.ValidationMessageFor(model => model.Instructor.Designation)
+        </div>
+
+    </fieldset>
+@*}
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+*@

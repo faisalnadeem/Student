@@ -1,0 +1,39 @@
+﻿@model Mvc4EF6LazyLoadDemo.Models.Student
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Student</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Fullname)
+    </div>
+	<div class="display-field">
+		@Html.DisplayFor(model => model.Fullname)
+	</div>
+    
+	<h2>Course</h2>
+	<div class="display-label">
+		@Html.DisplayNameFor(model=>model.Course)
+	</div>
+    <div class="display-field">
+		@Html.DisplayFor(model => model.Course.Description)
+	</div>
+
+	<h2>Instructor</h2>
+	<div class="display-label">
+		@Html.DisplayNameFor(model=>model.Instructor)
+	</div>
+    <div class="display-field">
+		@Html.DisplayFor(model => model.Instructor.Surname)
+	</div>
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
